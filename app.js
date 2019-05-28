@@ -30,10 +30,10 @@ server.listen(port, () => console.log(`Server running on port ${port}`));
 
 const getApiAndEmit = async socket => {
   try {
-    const res = await axios.get (
+    const res = await axios.get(
       "https://api.darksky.net/forecast/f99e836076c70a46d407fa40c22a8f62/37.8267,-122.4233"
     );
-    socket.emit("FromAPI", res.data.currently.temperature);
+    socket.emit("ting", res.data.currently);
   } catch(error) {
     console.log(`Error: ${error.code}`);
   }
